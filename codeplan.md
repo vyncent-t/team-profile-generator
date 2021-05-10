@@ -34,20 +34,74 @@ questions:
 
 
 
-class Member {
+class Employee {
     constructor(name,ID,email) {
         this.name = name;
         this.ID = ID;
         this.email = email;
     }
+    getName() {
+        returns name
+    }
+    getID() {
+        returns ID
+    }
+    getEmail() {
+        returns email
+    }
+    getRole() {
+        //needs to return "Employee"
+    }
 }
 
 // Not sure if this will work?? where do I need arg for office number???
-class Manager extends Member {
+
+class Manager extends Employee {
     constructor(name,ID,email) {
         super(name,ID,email,officeNumber){
             this.officeNumber = officeNumber;
         }
+    }
+
+    getOfficeNumber() {
+        returns office number
+    }
+
+    getRole() {
+        returns "Manager" (as an over ride)
+    }
+}
+
+
+class Engineer extends Employee {
+    constructor(name,ID,email) {
+        super(name,ID,email,github){
+            this.github = github;
+        }
+    }
+
+    getGithub{
+        returns Github
+    }
+
+    getRole() {
+        returns "Engineer" (as an over ride)
+    }
+}
+
+class Intern extends Employee {
+    constructor(name,ID,email) {
+        super(name,ID,email,school){
+            this.school = school;
+        }
+    }
+
+    getSchool{
+        returns school
+    }
+
+    getRole() {
+        returns "Intern" (as an over ride)
     }
 }
 
@@ -183,11 +237,19 @@ The first class is an `Employee` parent class with the following properties and 
 
 The other three classes will extend `Employee`.
 
+
+
+
 In addition to `Employee`'s properties and methods, `Manager` will also have the following:
 
 * `officeNumber`
 
 * `getRole()`&mdash;overridden to return `'Manager'`
+
+
+
+
+
 
 In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
 
@@ -196,6 +258,10 @@ In addition to `Employee`'s properties and methods, `Engineer` will also have th
 * `getGithub()`
 
 * `getRole()`&mdash;overridden to return `'Engineer'`
+
+
+
+
 
 In addition to `Employee`'s properties and methods, `Intern` will also have the following:
 
@@ -212,8 +278,6 @@ Finally, although it’s not a requirement, consider adding validation to ensure
 
 
 ## Grading Requirements
-
-This homework is graded based on the following criteria: 
 
 ### Deliverables: 15%
 
