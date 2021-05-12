@@ -57,10 +57,9 @@ class Employee {
 // Not sure if this will work?? where do I need arg for office number???
 
 class Manager extends Employee {
-    constructor(name,ID,email) {
-        super(name,ID,email,officeNumber){
+    constructor(name,ID,email,officeNumber) {
+        super(name,ID,email)
             this.officeNumber = officeNumber;
-        }
     }
 
     getOfficeNumber() {
@@ -74,10 +73,9 @@ class Manager extends Employee {
 
 
 class Engineer extends Employee {
-    constructor(name,ID,email) {
-        super(name,ID,email,github){
+    constructor(name,ID,email,github) {
+        super(name,ID,email)
             this.github = github;
-        }
     }
 
     getGithub{
@@ -90,10 +88,9 @@ class Engineer extends Employee {
 }
 
 class Intern extends Employee {
-    constructor(name,ID,email) {
-        super(name,ID,email,school){
+    constructor(name,ID,email,school) {
+        super(name,ID,email)
             this.school = school;
-        }
     }
 
     getSchool{
@@ -125,7 +122,7 @@ use inquire input object with questions from a questions bank
 
     -- TEAM MANAGER INFO IS DONE AND OBJECT IS ADDED TO TEAM ARRAY
 
-    -- CONTINUGING ON TO TEAM MEMBER SECTION (WITH OPTIONS TO ADD TEAM ROLE)
+    -- CONTINING ON TO TEAM MEMBER SECTION (WITH OPTIONS TO ADD TEAM ROLE)
     // WHEN THE LAST QUESTION IS ANSWERED?? START MENU LIST SEQUENCE - if else function to start the next section when team lead is done
 
                 *MENU LIST*
