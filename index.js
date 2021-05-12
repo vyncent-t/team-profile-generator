@@ -11,7 +11,6 @@ const addProp = (obj, propName, propValue) => {
 };
 
 // objects and arr to work with
-const managerInfo = {};
 const workTeam = []; // work team will be an arr of objs dynamically created and looped for info of all other team members, engineer or intern
 
 // classes
@@ -88,30 +87,78 @@ inquirer.prompt([
     let teamManager = new Manager(answers.managerName,answers.managerID,answers.managerEmail,answers.managerOffice);
 
     console.log(teamManager)
+    workTeam.push(teamManager)
     teamBuild()
 }).catch(err => {
     console.log(err)
 })
 
+
+
 function teamBuild() {
     inquirer.prompt([
     {type: "list",
     name: "employeeRole",
-    message: "is this team member an engineer or an intern?",
+    message: "ADDING TEAM MEMBER: is this team member an engineer or an intern?",
     choices: ["engineer","intern","finish team"]
     }]).then(teamAnswers => {
         if (teamAnswers.employeeRole == "engineer"){
             console.log("engineer ready")
             // create new obj for workTeam array?
-            inquirer.prompt([
-
-            ])
+            addEngineer()
         } else if ( teamAnswers.employeeRole == "intern") {
             console.log("intern ready")
+            addIntern()
         } else {
             console.log("boot team finisher")
+            console.log(`Your current team - team manager = ${workTeam[0].name} team members = ${workTeam[1].name}`)
+            // FILE CREATE THE HTML
         }
     })
 
+}
+
+function addEngineer() {
+            inquirer.prompt([
+    {name: "engineerName",
+    message: "Please enter team engineer name:"},
+    {name: "engineerID",
+    message: "Please enter team engiener ID:"},
+    {name: "engineerEmail",
+    message: "Please enter team engineer email:"},
+    {name: "engineerGit",
+    message: "Please enter engineer github username:"},
+]).then( answers => {
+
+    let engineerMember = new Engineer(answers.engineerName,answers.engineerID,answers.engineerEmail,answers.engineerGit);
+
+    console.log(engineerMember)
+    workTeam.push(engineerMember)
+    teamBuild()
+}).catch(err => {
+    console.log(err)
+})
+}
+
+function addIntern() {
+            inquirer.prompt([
+    {name: "internName",
+    message: "Please enter team intern name:"},
+    {name: "internID",
+    message: "Please enter team intern ID:"},
+    {name: "internEmail",
+    message: "Please enter team intern email:"},
+    {name: "internSchool",
+    message: "Please enter school of this intern:"},
+]).then( answers => {
+
+    let internMember = new Intern(answers.internName,answers.internID,answers.internEmail,answers.internSchool);
+
+    console.log(internMember)
+    workTeam.push(internMember)
+    teamBuild()
+}).catch(err => {
+    console.log(err)
+})
 }
 
