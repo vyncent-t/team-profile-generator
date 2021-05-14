@@ -1,6 +1,23 @@
 CODE MAP
 
 
+to do:
+- make html page layout 
+- function that creates landing page withj fs
+- function that imports data from inputs
+
+# current work:
+- making bootstrap cards
+#  FIX / currently empty for now is not updating - could just drop the string into the text prop but I want to know why its not working
+
+notes:
+- what if I make something that will export the team array to a different page
+
+- OR i can make it so at the end of the finish team build, the for loop function runs for the team cards "for workteam.length[1] //starting after the leader// import the relevant info into the cards - name - email - id - but then i need to work a way that dynamically changes the last object name? maybe an if/else statement that reads a prop of the employee obj to be like "if role is engineer put GITHUB as card line 4 if role is intern put SCHOOL as card line 4"
+
+
+- mid work / so what if I use another for loop to add a string to the object then use that for loop to push that string to an array, then the last for loop? or something else to concat the array of strings using a spacer and drop the pageContent variable into the string temp lit html body
+
 `NEED TO USE INQUIRE`
 `NEED TO USE JEST`
 `NEED TO USE CLASS`
