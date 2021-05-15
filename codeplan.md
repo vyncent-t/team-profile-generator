@@ -7,8 +7,8 @@ to do:
 - function that imports data from inputs
 
 # current work:
-- making bootstrap cards
-#  FIX / currently empty for now is not updating - could just drop the string into the text prop but I want to know why its not working
+
+#  FIX / need to use jest and make things work
 
 notes:
 - what if I make something that will export the team array to a different page
