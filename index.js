@@ -30,8 +30,8 @@ inquirer.prompt([
 
     let teamManager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOffice);
 
-    console.log(teamManager)
-    console.log(teamManager.getRole())
+    // console.log(teamManager)
+    // console.log(teamManager.getRole())
     workTeam.push(teamManager)
     teamBuild()
 }).catch(err => {
@@ -89,8 +89,8 @@ function addEngineer() {
 
         let engineerMember = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGit);
 
-        console.log(engineerMember)
-        console.log(engineerMember.getRole())
+        // console.log(engineerMember)
+        // console.log(engineerMember.getRole())
         workTeam.push(engineerMember)
         teamBuild()
     }).catch(err => {
@@ -120,8 +120,8 @@ function addIntern() {
 
         let internMember = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
 
-        console.log(internMember)
-        console.log(internMember.getRole())
+        // console.log(internMember)
+        // console.log(internMember.getRole())
         workTeam.push(internMember)
         teamBuild()
     }).catch(err => {
