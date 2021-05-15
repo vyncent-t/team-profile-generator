@@ -207,13 +207,13 @@ function teamFinalizer() {
             // update the string prop
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
-        <div class="card-header"> 
+        <div class="card-header bg-primary text-light">
             <div> <p>${workTeam[i].name}</p> </div>
             <div> <p>${workTeam[i].role}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${workTeam[i].id}</li>
-                <li class="list-group-item">Email: ${workTeam[i].email}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].email}">${workTeam[i].email}</a></li>
                 <li class="list-group-item">Office number: ${workTeam[i].officeNum}</li>
             </ul>
         </div>`
@@ -221,27 +221,27 @@ function teamFinalizer() {
         } else if (workTeam[i].role === "engineer") {
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
-        <div class="card-header"> 
+        <div class="card-header bg-primary text-light"> 
             <div> <p>${workTeam[i].name}</p> </div>
             <div> <p>${workTeam[i].role}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${workTeam[i].id}</li>
-                <li class="list-group-item">Email: ${workTeam[i].email}</li>
-                <li class="list-group-item">GitHub: ${workTeam[i].github}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].email}">${workTeam[i].email}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${workTeam[i].github}" target="_blank">${workTeam[i].github}</a></li>
             </ul>
         </div>`
             console.log(`updated page text for: ${workTeam[i].name}`)
         } else if (workTeam[i].role === "intern") {
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
-        <div class="card-header"> 
+        <div class="card-header bg-primary text-light"> 
             <div> <p>${workTeam[i].name}</p> </div>
             <div> <p>${workTeam[i].role}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${workTeam[i].id}</li>
-                <li class="list-group-item">Email: ${workTeam[i].email}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].email}">${workTeam[i].email}</a></li>
                 <li class="list-group-item">School: ${workTeam[i].school}</li>
             </ul>
         </div>`
@@ -287,7 +287,7 @@ function teamFinalizer() {
       <div class=" min-hieghtd-block w-100 h-50 bg-primary">
           <h1 class="text-center text-light">Hello world</h1>
       </div>
-    <div class="d-flex ">
+    <div>
         <div class="d-flex justify-content-around"> ${finalPageContent} </div>
     </div>
 
