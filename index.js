@@ -1,7 +1,3 @@
-const functions = {
-    add: (numA, numB) => numA + numB
-}
-module.exports = functions;
 
 const fs = require("fs")
 const inquirer = require("inquirer");
@@ -10,20 +6,8 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern");
 const { promisify } = require("util");
 
-// func to add key pairs to an object
-const addProp = (obj, propName, propValue) => {
-    obj[propName] = propValue
-};
-
-
-let mainPage = "x" // INSERT FINISHED HMTL EDIT PAGE HERE
-
-
 // objects and arr to work with
 const workTeam = []; // work team will be an arr of objs dynamically created and looped for info of all other team members, engineer or intern
-
-// classes
-
 
 inquirer.prompt([
     {
@@ -147,50 +131,51 @@ function addIntern() {
 
 function teamFinalizer() {
     // for every employee after the leader so workteam[1] export their name ID and email - along with the if else the role is engineer edit the card like 4 to be github if role is intern edit the card line 4 to be school
+
     for (let i = 0; i < workTeam.length; i++) {
         if (workTeam[i].role === "manager") {
             // update the string prop
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-light">
-            <div> <p>${Manager.getName()}</p> </div>
-            <div> <p>${Manager.getRole()}</p> </div>
+            <div> <p>${workTeam[i].getName()}</p> </div>
+            <div> <p>${workTeam[i].getRole()}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${Manager.getID()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: ${Manager.getOfficeNumber()}</li>
+                <li class="list-group-item">ID: ${workTeam[i].getID()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].getEmail()}">${workTeam[i].getEmail()}</a></li>
+                <li class="list-group-item">Office number: ${workTeam[i].getOfficeNumber()}</li>
             </ul>
         </div>`
-            console.log(`updated page text for: ${Manager.getName()}`)
+            console.log(`updated page text for: ${workTeam[i].getName()}`)
         } else if (workTeam[i].role === "engineer") {
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-light"> 
-            <div> <p>${Engineer.getName()}</p> </div>
-            <div> <p>${Engineer.getRole()}</p> </div>
+            <div> <p>${workTeam[i].getName()}</p> </div>
+            <div> <p>${workTeam[i].getRole()}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${Engineer.getID()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
-                <li class="list-group-item">GitHub: <a href="https://github.com/${Engineer.getGithub()}" target="_blank">${Engineer.getGithub()}</a></li>
+                <li class="list-group-item">ID: ${workTeam[i].getID()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].getEmail()}">${workTeam[i].getEmail()}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${workTeam[i].getGithub()}" target="_blank">${workTeam[i].getGithub()}</a></li>
             </ul>
         </div>`
-            console.log(`updated page text for: ${Engineer.getName()}`)
+            console.log(`updated page text for: ${workTeam[i].getName()}`)
         } else if (workTeam[i].role === "intern") {
             workTeam[i].pagetext = `
       <div class="card" style="width: 18rem;">
         <div class="card-header bg-primary text-light"> 
-            <div> <p>${Intern.getName()}</p> </div>
-            <div> <p>${Intern.getRole()}</p> </div>
+            <div> <p>${workTeam[i].getName()}</p> </div>
+            <div> <p>${workTeam[i].getRole()}</p> </div>
         </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${Intern.getID()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></li>
-                <li class="list-group-item">School: ${Intern.getSchool()}</li>
+                <li class="list-group-item">ID: ${workTeam[i].getID()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${workTeam[i].getEmail()}">${workTeam[i].getEmail()}</a></li>
+                <li class="list-group-item">School: ${workTeam[i].getSchool()}</li>
             </ul>
         </div>`
-            console.log(`updated page text for: ${Intern.getName()}`)
+            console.log(`updated page text for: ${workTeam[i].getName()}`)
         }
     }
 
@@ -229,7 +214,3 @@ function teamFinalizer() {
 
     return basePage;
 }
-
-// const promiseWriteFile = promisify(fs.writeFile);
-
-// promiseWriteFile.then((res) => "yay").catch(err => )
